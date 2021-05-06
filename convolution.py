@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import matplotlib.pyplot as plt
 
 def convolution(img, kernel):
     # Converts from a 3 channel image to a 2-D array in grayscale.
@@ -19,12 +20,33 @@ def convolution(img, kernel):
     # Defines empty 2-D matrix of the size of the image as output matrix.
     output = np.zeros(img.shape)
 
-    # Outputs matrices sizes for comprobation.
-    print("Original : {}, {}".format(img_row, img_col))
-    print("Kernel : {}, {}".format(kernel_row, kernel_col))
-    print("Padding : {}, {}".format(padding[0], padding[1]))
-    print("Padded Image : {}, {}".format(padded_img.shape[0], padded_img.shape[1]))
-    print("Output : {}, {}".format(output.shape[0], output.shape[1]))
+    for row in range(img_row):
+        for col in range(img_col):
+            # Dot product of the filter and the image.
+            filtered = padded_img[
+                row: row + kernel_row,
+                col: col + kernel_col
+            ]
+            # Sum of the values of the dot product for each position.
+            output[row, col] = np.sum(kernel * filtered)
+
+    # Saves the result of the filter.
+    cv2.imwrite("output_image.jpg", output)
+
+    # If display is defined, it will show the result.
+    if verbose:
+        plt.imshow(img, cmap='gray')
+        plt.title("Image")
+        plt.show()
+
+        plt.imshow(padded_img, cmap='gray')
+        plt.title("Padded Image")
+        plt.show()
+
+        plt.imshow(output, cmap='gray')
+        plt.title("Output Image using {}X{} Kernel".format(
+            kernel_row, kernel_col))
+        plt.show()
 
     # Returns the output matrix.
     return output
@@ -38,4 +60,4 @@ if __name__ == '__main__':
         [1/9, 1/9, 1/9]
     ])
 
-    imgage = convolution(image, kernel)
+    image = convolution(image, kernel)
