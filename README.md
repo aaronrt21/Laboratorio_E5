@@ -1,12 +1,17 @@
 # Laboratorio_E5
 
 ## Setup
-Es requerido tener instalado las librerias Open Camera Vision (OpenCV), matplotlib y Numpy para que funcione el proyecto, en caso de no tenerlas instaladas, se requerirá ingresar en la consola los siguientes comandos:
+Es requerido tener instalado las librerias Open Camera Vision (OpenCV), argparse, matplotlib y Numpy para que funcione el proyecto, en caso de no tenerlas instaladas, se requerirá ingresar en la consola los siguientes comandos:
 
 Para instalar el módulo de Open Camera Vision (OpenCV) de python:
 
 ```
 pip install opencv-python
+```
+Para instalar el módulo de argparse:
+
+```
+pip install argparse
 ```
 Para instalar el módulo de Matplotlib de python:
 
