@@ -63,8 +63,20 @@ if __name__ == '__main__':
 	image = cv2.imread(args["image"])
 
 	# Filters / Kernel
-	edge_detection = np.array([
+	#Edge Detection Kernel
+    edge_detection = np.array([
 		[-1, -1, -1],
-		[-1, 8, -1],
+		[-1,  8, -1],
 		[-1, -1, -1]
 		])
+    #Gaussian Blur Kernel
+    gaussian_blur = np.array([
+        [0,  0,   0,   5,   0,  0, 0],
+        [0,  5,  18,  32,  18,  5, 0],
+        [0, 18,  64, 100,  64, 18, 0],
+        [5, 32, 100, 100, 100, 32, 5],
+        [0, 18,  64, 100,  64, 18, 0],
+        [0,  5,  18,  32,  18,  5, 0],
+        [0,  0,   0,   5,   0,  0, 0]
+    ])
+image_gb = convolution(image, gaussian_blur, True)
