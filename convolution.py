@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import argparse
 
 
-def convolution(img, kernel):
+def convolution(img, kernel, verbose = False):
     # Converts from a 3 channel image to a 2-D array in grayscale.
     if len(img.shape) == 3:
         img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
