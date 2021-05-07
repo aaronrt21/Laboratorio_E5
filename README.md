@@ -27,12 +27,12 @@ pip install numpy
 ## Funcionamiento
 Para que el programa corra le debera ingresar el path de la imagen que desea utilizar con los filtros en forma de argumento. Debera ingresarlo de la siguiente forma, remplazando image por el path o nombre de la imagen que desea utilizar:
 ```
-pyhton convolution.py -i image.jpg
+python convolution.py -i image.jpg
 ```
 
 En caso de no querer visualizar el resultado en representacion, y solo desea guardar las imagenes con sus respectivos nombres, se necesita corre rel siguiente comando:
 ```
-pyhton convolution.py -i image.jpg -v False
+python convolution.py -i image.jpg -v False
 ```
 
 El programa se encargara de convertir la imagen en forma de matriz bidimensional en escala de grises para su procesamiento, el cual pasara por tres filtros kernel, un detector de bordes (edge_detection); un desenfoque gaussiano (gaussian_blur); y un desenfoque simple (simple_blur), donde cada uno sera guardado con su nombre respectivo de **"*Output_kernel.jpg*"**.
