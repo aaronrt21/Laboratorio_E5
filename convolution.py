@@ -80,3 +80,4 @@ if __name__ == '__main__':
 		[0,  0,   0,   5,   0,  0, 0]
 		])
 	image_gb = convolution(image, gaussian_blur, True)
+	image_ed = convolution(image, edge_detection, True)
