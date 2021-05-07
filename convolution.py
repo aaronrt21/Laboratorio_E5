@@ -41,8 +41,8 @@ def convolution(img, kernel, verbose=False, filename="Output_kernel.jpg"):
         plt.title("Image")
         plt.show()
 
-        plt.imshow(padded_img, cmap='gray')
-        plt.title("Padded Image")
+        plt.imshow(kernel, cmap='gray')
+        plt.title("Kernel Filter")
         plt.show()
 
         plt.imshow(output, cmap='gray')
